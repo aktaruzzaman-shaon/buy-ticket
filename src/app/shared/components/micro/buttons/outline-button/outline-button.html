@@ -1,0 +1,18 @@
+<div class="">
+  <button
+    type="button"
+    (click)="onClick()"
+    [disabled]="isDisabled()"
+    class="flex items-center justify-center gap-2 font-medium transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed rounded-xl"
+    [ngClass]="[sizeClass(), variantClass()]"
+  >
+    <!-- Loader -->
+    @if (loading()) {
+      <span
+        class="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
+      ></span>
+    }
+    <!-- Label -->
+    <span>{{ label() }}</span>
+  </button>
+</div>
