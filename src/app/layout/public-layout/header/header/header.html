@@ -8,18 +8,9 @@
   </div>
 
   <nav class="flex items-center space-x-8">
-    <!-- <a
-      href="#"
-      class="flex flex-col items-center px-4 py-2 border border-green-500 rounded-lg text-green-600"
-    >
-      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24"></svg>
-    </a> -->
-    <span class="text-sm font-medium">Bus</span>
-
-    <!-- <a href="#" class="flex flex-col items-center text-gray-700 hover:text-green-600 transition">
-      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24"></svg>
-      <span class="text-sm font-medium">Air</span>
-    </a>
+    @for (item of menuItems; track item.label) {
+      <app-nav-menu [item]="item"></app-nav-menu>
+    }
 
     <a href="#" class="flex flex-col items-center text-gray-700 hover:text-green-600 transition">
       <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24"></svg>
@@ -46,7 +37,8 @@
       >
       <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24"></svg>
       <span class="text-sm font-medium">Park</span>
-    </a> -->
+    </a>
+    -->
   </nav>
 
   <div class="flex items-center space-x-4">

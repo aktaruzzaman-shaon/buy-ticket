@@ -1,1 +1,22 @@
-<p>nav-menu works!</p>
+<a
+  [routerLink]="item().route"
+  routerLinkActive
+  #rla="routerLinkActive"
+  [class]="rla.isActive ? activeClasses : inactiveClasses"
+  class="group flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 text-sm font-medium"
+>
+  @if (item()?.icon) {
+    <ng-container [ngComponentOutlet]="item().icon || null"></ng-container>
+  }
+
+  <span class="flex-1">{{ item().label }}</span>
+
+  @if (item().badge) {
+    <span
+      class="px-2 py-0.5 text-xs rounded-full bg-blue-500 text-white"
+      [class.bg-blue-600]="rla.isActive"
+    >
+      {{ item().badge }}
+    </span>
+  }
+</a>
