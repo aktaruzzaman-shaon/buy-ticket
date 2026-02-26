@@ -1,32 +1,30 @@
 import { Component } from '@angular/core';
 import { NavMenu } from '../../../../shared/components/micro/nav-menu/nav-menu';
-import { NgClass } from '../../../../../../node_modules/@angular/common/types/_common_module-chunk';
+
 import { NavMenuItem } from '../../../../shared/components/micro/nav-menu/nav-menu.types';
 
 @Component({
   selector: 'app-header',
-  imports: [NavMenu, ],
+  imports: [NavMenu],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
   menuItems: NavMenuItem[] = [
     {
-      label: 'Dashboard',
+      label: 'Bus',
       route: '/dashboard',
     },
     {
-      label: 'Notifications',
+      label: 'Air',
       route: '/notifications',
-      badge: 5,
     },
     {
-      label: 'Settings',
+      label: 'Train',
       route: '/settings',
-      badge: 'New',
     },
     {
-      label: 'Admin Panel',
+      label: 'Launch',
       route: '/admin',
       disabled: true,
     },
