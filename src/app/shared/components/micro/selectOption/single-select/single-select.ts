@@ -40,4 +40,8 @@ export class SingleSelect {
     this.isOpen.set(false);
     this.onSelection.emit(option);
   }
+
+  visibleSuggestion() {
+    this.isOpen.set(true);
+  }
 }

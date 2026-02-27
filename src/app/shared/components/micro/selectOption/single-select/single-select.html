@@ -2,7 +2,7 @@
   cdkOverlayOrigin
   #trigger="cdkOverlayOrigin"
   (click)="toggleDropdown()"
-  class="flex flex-col w-full min-w-[150px] p-3 bg-white border border-gray-200 rounded-xl cursor-pointer hover:border-emerald-400 transition-all shadow-sm group"
+  class="flex flex-col w-full min-w-sm p-3 bg-white border border-gray-200 rounded-xl cursor-pointer hover:border-emerald-400 transition-all shadow-sm group"
 >
   <span class="text-[10px] uppercase tracking-wider font-bold text-emerald-600 mb-1 leading-none">
     {{ label() }}
@@ -28,12 +28,7 @@
     >
       {{ selectedLabel() || placeholder() }}
     </span>
-  
-
-    
   </div>
-
-  
 </div>
 
 <ng-template
@@ -46,7 +41,7 @@
   (backdropClick)="isOpen.set(false)"
 >
   <div
-    class="mt-2 w-[300px] bg-white border border-gray-100 rounded-xl shadow-2xl ring-1 ring-black/5 overflow-hidden animate-in fade-in zoom-in duration-150"
+    class="mt-2 min-w-sm bg-white border border-gray-100 rounded-xl shadow-2xl ring-1 ring-black/5 overflow-hidden animate-in fade-in zoom-in duration-150"
   >
     <div class="p-2 border-b border-gray-50 bg-gray-50/50">
       <input
@@ -79,3 +74,20 @@
     </ul>
   </div>
 </ng-template>
+
+<!-- <div class="relative w-full min-w-sm border border-gray-200 rounded-xl">
+  <input
+    type="text"
+    (click)="visibleSuggestion()"
+    [placeholder]="placeholder()"
+    class="w-full p-3 rounded-xl focus:outline-none"
+  />
+  @if (isOpen()) {
+    <div class="absolute w-full top-full min-w-sm z-20">
+      <ul class="bg-white border border-gray-200 rounded-xl shadow-lg">
+        <li class="px-4 py-2 hover:bg-emerald-50 cursor-pointer">Dhaka</li>
+        <li class="px-4 py-2 hover:bg-emerald-50 cursor-pointer">Jashore</li>
+      </ul>
+    </div>
+  }
+</div> -->
