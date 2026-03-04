@@ -16,6 +16,9 @@ export class SingleSelect {
   label = input<string>('From');
 
   onSelection = output<SelectOption>();
+  constructor() {
+    console.log('SingleSelect component initialized', this.options());
+  }
 
   searchTerm = signal('');
   isOpen = signal(false);

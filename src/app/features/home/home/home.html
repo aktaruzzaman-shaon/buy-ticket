@@ -1,6 +1,6 @@
 <div class="app-container flex flex-wrap items-end gap-4">
-  <app-single-select label="From" placeholder="From"></app-single-select>
-  <app-single-select label="To" placeholder="To"></app-single-select>
+  <app-single-select label="From" placeholder="From" [options]="locationFacade.locations()"></app-single-select>
+  <app-single-select label="To" placeholder="To" [options]="locationFacade.locations()"></app-single-select>
   <app-calendar></app-calendar>
   <button class="bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors">
     Search
