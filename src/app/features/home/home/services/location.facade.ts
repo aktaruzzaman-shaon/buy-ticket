@@ -1,13 +1,14 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { LocationApi } from "./location.api";
 import { tap } from "rxjs";
+import { Location } from "../models/location.model";
 
 @Injectable({
     providedIn:'root'
 })
 export class LocationFacade{
     private locationApi = inject(LocationApi);
-    locations = signal([]);
+    locations = signal<Location[]>([]);
     loading  = signal(false);
     error = signal(null);
     constructor(){}
@@ -31,7 +32,7 @@ export class LocationFacade{
     ).subscribe();
    }
 
-   private mapLocations(dto:any):any{
+   private mapLocations(dto:any):Location[]{
     return dto.map((item:any)=>({
         id: item.id,
         label: item.name
