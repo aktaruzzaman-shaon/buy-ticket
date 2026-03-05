@@ -8,6 +8,7 @@ import { Component, computed, signal } from '@angular/core';
   styleUrl: './calendar.css',
 })
 export class Calendar {
+  
   // Global App State
   today = new Date();
   journeyType = signal<'one-way' | 'round-trip'>('one-way');
