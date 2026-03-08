@@ -1,7 +1,7 @@
 <div class="app-container flex flex-wrap items-end gap-4">
-  <app-single-select label="From" placeholder="From" [options]="locationFacade.locations()"></app-single-select>
-  <app-single-select label="To" placeholder="To" [options]="locationFacade.locations()"></app-single-select>
-  <app-calendar></app-calendar>
+  <app-single-select label="From" placeholder="From" [options]="locationFacade.locations()" (onSelection)="updateSearchQuery('from', $event)"></app-single-select>
+  <app-single-select label="To" placeholder="To" [options]="locationFacade.locations()" (onSelection)="updateSearchQuery('to', $event)"></app-single-select>
+  <app-calendar (depeartureOutput)="updateSearchQuery('departureDate', $event)" (returnOutput)="updateSearchQuery('returnDate', $event)"></app-calendar>
   <button class="bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors p-4 mb-1.5">
     Search
   </button>

@@ -38,4 +38,18 @@ export class LocationFacade{
         label: item.name
     }));
    }
+
+    //    fetchTrips
+   fetchTrips(){
+    this.loading.set(true);
+    this.error.set(null);
+    this.locationApi.getTrips().pipe(
+        tap({
+            next:(dto)=>{
+                console.log('Trips data:', dto);
+                this.loading.set(false);
+            }
+        })
+    ).subscribe();
+   }
 }

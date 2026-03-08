@@ -12,4 +12,8 @@ export class LocationApi{
     getLocations(){
         return this.http.get(`${this.baseUrl}/api/locations/getAll`);
     }
+
+    getTrips(){
+        return this.http.get(`${this.baseUrl}/api/trips/getAll`);
+    }
 }

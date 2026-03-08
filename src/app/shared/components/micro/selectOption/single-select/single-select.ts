@@ -3,6 +3,7 @@ import { SelectOption } from './single-select.type';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { SearchFieldEvent } from '../../../../../features/home/home/models/search-field-event.model';
 
 @Component({
   selector: 'app-single-select',
@@ -10,12 +11,13 @@ import { OverlayModule } from '@angular/cdk/overlay';
   templateUrl: './single-select.html',
   styleUrl: './single-select.css',
 })
+
 export class SingleSelect {
   options = input<SelectOption[]>([]);
   placeholder = input<string>('Select...');
   label = input<string>('From');
 
-  onSelection = output<SelectOption>();
+  onSelection = output<SearchFieldEvent>();
   constructor() {
     console.log('SingleSelect component initialized', this.options());
   }
@@ -39,9 +41,10 @@ export class SingleSelect {
   }
 
   selectOption(option: SelectOption) {
+    console.log('Option selected:', option);
     this.selectedLabel.set(option.label);
     this.isOpen.set(false);
-    this.onSelection.emit(option);
+    this.onSelection.emit({ field: this.label(), value: option.label });
   }
 
   visibleSuggestion() {

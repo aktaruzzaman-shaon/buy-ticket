@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-calendar',
@@ -9,13 +9,16 @@ import { Component, computed, signal } from '@angular/core';
 })
 export class Calendar {
   
-  // Global App State
+
   today = new Date();
   journeyType = signal<'one-way' | 'round-trip'>('one-way');
   departureDate = signal<Date | null>(null);
   returnDate = signal<Date | null>(null);
   activeField = signal<'departure' | 'return'>('departure');
   showCalendar = signal(false);
+
+  depeartureOutput = output<Date | null>();
+  returnOutput = output<Date | null>();
 
   // Calendar View State (which month the user is looking at)
   viewDate = signal(new Date(this.today.getFullYear(), this.today.getMonth(), 1));
@@ -59,12 +62,14 @@ export class Calendar {
 
     if (this.activeField() === 'departure') {
       this.departureDate.set(date);
+      this.depeartureOutput.emit(date);
       if (this.journeyType() === 'round-trip') this.activeField.set('return');
       else this.showCalendar.set(false);
     } else {
       // Prevent return date being before departure
       if (this.departureDate() && date < this.departureDate()!) return;
       this.returnDate.set(date);
+      this.returnOutput.emit(date);
       this.showCalendar.set(false);
     }
   }
