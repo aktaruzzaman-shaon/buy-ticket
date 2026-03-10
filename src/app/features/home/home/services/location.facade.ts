@@ -11,7 +11,7 @@ export class LocationFacade{
     locations = signal<Location[]>([]);
     loading  = signal(false);
     error = signal(null);
-    constructor(){}
+   
     // fetch locations from api
    fetchLocations(){
     this.loading.set(true);
