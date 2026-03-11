@@ -6,7 +6,7 @@
 
   <app-calendar (depeartureOutput)="updateSearchQuery('departureDate', $event)" (returnOutput)="updateSearchQuery('returnDate', $event)"></app-calendar>
 
-  <button class="bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors p-4 mb-1.5">
+  <button class="bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors p-4 mb-1.5" (click)="loadTrips()">
     Search
   </button>
 

@@ -5,12 +5,14 @@ import { environment } from "../../../../../environments/environment";
 @Injectable({
     providedIn: 'root'
 })
+
 export class TripApi {
     
     private http = inject(HttpClient);
     private baseUrl = environment.apiUrl;
 
-    getTrips(){
-        return this.http.get(`${this.baseUrl}/api/trips/search?originLocation=Dhaka&destination=Chittagong&doj=2026-03-05T02:00:00.000Z&dor=`);
+    getTrips(payload: any) {
+        console.log('API call with payload:', payload);
+        return this.http.get(`${this.baseUrl}/api/trips/search?originLocation=${payload.origin}&destination=${payload.destination}&doj=${payload.date}&dor=${payload.returnDate }`);
     }
 }
