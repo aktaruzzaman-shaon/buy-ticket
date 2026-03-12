@@ -30,7 +30,7 @@ export class Home implements OnInit {
 
   loadTrips() {
     console.log('Initiating trip search with query:',this.searchQuery.from.value, this.searchQuery.to.value, this.searchQuery.departureDate);
-    this.routeFacade.searchRoutes(this.searchQuery.from.value, this.searchQuery.to.value, this.searchQuery.departureDate );
+    this.routeFacade.searchRoutes(this.searchQuery.from.value, this.searchQuery.to.value, this.searchQuery.departureDate); 
   }
 
   updateSearchQuery(key: string, value: any) {
