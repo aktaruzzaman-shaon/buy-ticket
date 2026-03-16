@@ -30,6 +30,7 @@ interface TripSchedule {
     name: string;
   };
 }
+
 export interface SearchPayload {
   origin: string;
   destination: string;
@@ -55,7 +56,6 @@ export class RouteFacade {
 
     this.tripApi.getTrips({ origin, destination, date: departureDate }).subscribe({
       next: (data) => {
-        console.log('Received trip data:', data);
         this.routes.set(data as TripSchedule);
         this.loading.set(false);
       },
@@ -66,4 +66,6 @@ export class RouteFacade {
       }
     });
   }
+
+  
 }
